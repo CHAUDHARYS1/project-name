@@ -1,6 +1,6 @@
 // import './App.css';
 import LoginForm from './pages/Login';
-import SignUpForm from './pages/Signup';
+// import SignUpForm from './pages/Signup';
 
 
 function App() {
