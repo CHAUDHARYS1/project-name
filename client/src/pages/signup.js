@@ -3,15 +3,14 @@ import {
   Button,
   Form,
   Grid,
-  Segment,
   Header,
   Image,
-  Input,
   Container,
   Menu,
   Icon,
   Divider,
-  Checkbox,Card, CardContent
+  Checkbox,
+  Card,
 } from "semantic-ui-react";
 
 const SignUpForm = () => (
@@ -35,8 +34,10 @@ const SignUpForm = () => (
     <div className="text-center margin-top-50">
       <Header as="h1">
         <Header.Content>
-          Sign up for free and
-          <Header.Subheader>experience our platform today!</Header.Subheader>
+          Sign up for free
+          <Header.Subheader>
+            and experience our platform today!
+          </Header.Subheader>
         </Header.Content>
       </Header>
     </div>
@@ -73,23 +74,55 @@ const SignUpForm = () => (
           </Header>
         </Grid.Column>
         <Grid.Column>
-            <Card fluid>
-                <Card.Content>
-          <Form>
-            <Form.Group fluid columns='equal' widths='equal'>
-                <Form.Input icon='user' iconPosition='left' label='First Name' placeholder='First Name' />
-                <Form.Input icon='user' iconPosition='left' label='Last Name' placeholder='Last Name'/>
-            </Form.Group>
-            <Form.Input icon='at' iconPosition='left' label='Email address' placeholder='Email address' />
-            <Form.Input icon='building' iconPosition='left' label='Company name' placeholder='Company name' />
-            <Form.Input icon='lock' iconPosition='left' label='Password' type='password' placeholder='Password'/>
-            <Form.Input icon='lock' iconPosition='left' label='Confirm Password' type='password' placeholder='Confirm Password'/>
-            <Form.Field>
-              <Checkbox label="Signing up signifies that you have read and agree to the Terms of Service and our Privacy Policy. Cookie Preferences." />
-            </Form.Field>
-            <Button type="submit">Submit</Button>
-          </Form>
-          </Card.Content>
+          <Card fluid>
+            <Card.Content>
+              <Form>
+                <Form.Group fluid columns="equal" widths="equal">
+                  <Form.Input
+                    icon="user"
+                    iconPosition="left"
+                    label="First Name"
+                    placeholder="First Name"
+                  />
+                  <Form.Input
+                    icon="user"
+                    iconPosition="left"
+                    label="Last Name"
+                    placeholder="Last Name"
+                  />
+                </Form.Group>
+                <Form.Input
+                  icon="at"
+                  iconPosition="left"
+                  label="Email address"
+                  placeholder="Email address"
+                />
+                <Form.Input
+                  icon="building"
+                  iconPosition="left"
+                  label="Company name"
+                  placeholder="Company name"
+                />
+                <Form.Input
+                  icon="lock"
+                  iconPosition="left"
+                  label="Password"
+                  type="password"
+                  placeholder="Password"
+                />
+                <Form.Input
+                  icon="lock"
+                  iconPosition="left"
+                  label="Confirm Password"
+                  type="password"
+                  placeholder="Confirm Password"
+                />
+                <Form.Field>
+                  <Checkbox label="Signing up signifies that you have read and agree to the Terms of Service and our Privacy Policy. Cookie Preferences." />
+                </Form.Field>
+                <Button type="submit">Submit</Button>
+              </Form>
+            </Card.Content>
           </Card>
         </Grid.Column>
       </Grid.Row>
