@@ -1,33 +1,36 @@
-import React from 'react';
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import React from 'react'
+import { Button, Container, Divider, Form, Grid, Segment, Header, Icon } from 'semantic-ui-react'
 
 const LoginForm = () => (
-  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-    <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as='h2' color='teal' textAlign='center'>
-        <Image src='/logo.png' /> Log-in to your account
+  <Container>
+    <Grid.Row style={{ maxWidth: 700}} className='margin-0 margin-top-100' >
+      <Header as='h2'>
+        <Icon name='user circle' />
+        <Header.Content>
+          Login
+          <Header.Subheader>Please enter your email and password</Header.Subheader>
+        </Header.Content>
       </Header>
-      <Form size='large'>
-        <Segment stacked>
-          <Form.Input fluid icon='user' iconPosition='left' placeholder='E-mail address' />
-          <Form.Input
-            fluid
-            icon='lock'
-            iconPosition='left'
-            placeholder='Password'
-            type='password'
-          />
+      <Segment placeholder>
+        <Grid columns={2} relaxed='very' stackable>
+          <Grid.Column>
+            <Form>
+              <Form.Input icon='at' iconPosition='left' label='Email address' placeholder='Email address' />
+              <Form.Input icon='lock' iconPosition='left' label='Password' type='password'/>
+              <Button content='Login' primary />
+            </Form>
+          </Grid.Column>
+          <Grid.Column verticalAlign='middle'>
+            <p className="text-center">New to us? </p>
+            <p className="text-center text-bold">Register for an account!</p>
+            <Button content='Sign up' icon='signup' size='big' />
+          </Grid.Column>
+        </Grid>
 
-          <Button color='teal' fluid size='large'>
-            Login
-          </Button>
-        </Segment>
-      </Form>
-      <Message>
-        New to us? <a href='#'>Sign Up</a>
-      </Message>
-    </Grid.Column>
-  </Grid>
-);
+        <Divider vertical>Or</Divider>
+      </Segment>
+    </Grid.Row>
+  </Container>
+)
 
-export default LoginForm;
+export default LoginForm
