@@ -87,8 +87,8 @@ ______________________________________________
 ## Front-end
 ### Pages needed 
 - Home (list of all the jobs( title, company name, description with character limit, date posted) and search bar on top)
-- Login (email and password && must include JWT)
-- Signup (first name, last name, email, password, confirmPassword)
+- Login (email and password && must include JWT) <!-- HTML COMPLETE >
+- Signup (first name, last name, email, password, confirmPassword) <!-- HTML COMPLETE >
 - Add a job list (Title*, Company name*, link to website, Date posted*, Type of role*(fulltime/contract/temp/part-time), Job description*, requirements*, benefits, salary, additional info)
 - Payment Tier (3 columns -  Stripe)
 - Single job listing (w/ apply btn - when user aplies > open modal, > redirect back to homepage)
