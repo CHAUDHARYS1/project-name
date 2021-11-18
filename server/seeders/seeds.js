@@ -1,10 +1,10 @@
 const faker = require('faker');
 
 const db = require('../config/connection');
-const { Thought, User } = require('../models');
+const { Job, User } = require('../models');
 
 db.once('open', async () => {
-  await Thought.deleteMany({});
+  await Job.deleteMany({});
   await User.deleteMany({});
 
   // create user data
@@ -20,56 +20,29 @@ db.once('open', async () => {
 
   const createdUsers = await User.collection.insertMany(userData);
 
-  // create friends
-  for (let i = 0; i < 100; i += 1) {
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { _id: userId } = createdUsers.ops[randomUserIndex];
-
-    let friendId = userId;
-
-    while (friendId === userId) {
-      const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-      friendId = createdUsers.ops[randomUserIndex];
-    }
-
-    await User.updateOne({ _id: userId }, { $addToSet: { friends: friendId } });
-  }
-
   // create thoughts
-  let createdThoughts = [];
+  let createdJobs = [];
   for (let i = 0; i < 100; i += 1) {
-    const thoughtText = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const jobtitle = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+    const description = faker.lorem.words(Math.round(Math.random() * 30) + 1);
+    const company = `Test` + faker.lorem.words(Math.round(Math.random() * 30) + 1);
+    const requirements = `my requirements` + faker.lorem.words(Math.round(Math.random() * 30) + 1);
+    const roletype = `Full Time`;
+    const salary =  Math.round(Math.random() * 10) + 1 * 100000 ;
 
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
-    const createdThought = await Thought.create({ thoughtText, username });
+    const createdJob = await Job.create({ jobtitle, username, description, company, requirements, roletype, salary});
 
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { thoughts: createdThought._id } }
+      { $push: { jobs: createdJob._id } }
     );
 
-    createdThoughts.push(createdThought);
+    createdJobs.push(createdJob);
   }
-
-  // create reactions
-  for (let i = 0; i < 100; i += 1) {
-    const reactionBody = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-
-    const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
-    const { username } = createdUsers.ops[randomUserIndex];
-
-    const randomThoughtIndex = Math.floor(Math.random() * createdThoughts.length);
-    const { _id: thoughtId } = createdThoughts[randomThoughtIndex];
-
-    await Thought.updateOne(
-      { _id: thoughtId },
-      { $push: { reactions: { reactionBody, username } } },
-      { runValidators: true }
-    );
-  }
-
+ console.log('created jobs', createdJobs);
   console.log('all done!');
   process.exit(0);
 });
