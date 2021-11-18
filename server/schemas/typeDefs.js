@@ -10,6 +10,13 @@ const typeDefs = gql`
     _id: ID
     jobtitle: String
     description: String
+    company: String
+    requirements: String
+    linktowebsite: String
+    roletype: String
+    benefits: String
+    salary: String
+    additionalinfo: String
   }
   type Query {
     me: User

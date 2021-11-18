@@ -33,7 +33,7 @@ const jobSchema = new Schema(
     },
     linktowebsite: {
       type: String,
-      required: true
+      required: false
     },
     roletype: {
       type: String,
@@ -41,7 +41,7 @@ const jobSchema = new Schema(
     },
     benefits: {
       type: String,
-      required: true
+      required: false
     },
     salary: {
       type: String,
