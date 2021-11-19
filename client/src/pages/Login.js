@@ -17,13 +17,13 @@ const LoginForm = () => (
             <Form>
               <Form.Input icon='at' iconPosition='left' label='Email address' placeholder='Email address' />
               <Form.Input icon='lock' iconPosition='left' label='Password' type='password' placeholder='Password' />
-              <Button content='Login' primary />
+              <Button content='Login'/>
             </Form>
           </Grid.Column>
           <Grid.Column verticalAlign='middle'>
             <p className="text-center">New to us? </p>
             <p className="text-center text-bold">Register for an account!</p>
-            <Button content='Sign up' icon='signup' size='big' />
+            <Button primary  content='Sign up' icon='signup' size='big' />
           </Grid.Column>
         </Grid>
 
