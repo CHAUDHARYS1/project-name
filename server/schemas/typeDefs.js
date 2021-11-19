@@ -5,6 +5,8 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    password: String
+    jobs:[Job]
   }
   type Job {
     _id: ID
@@ -18,12 +20,20 @@ const typeDefs = gql`
     salary: String
     additionalinfo: String
   }
+  type Auth {
+    token: ID!
+    user: User
+  }
   type Query {
     me: User
     users: [User]
     user(username: String!): User
     jobs(username: String): [Job]
     job(_id: ID!): Job
+    }
+  type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth    
   }
 `;
 module.exports = typeDefs;
