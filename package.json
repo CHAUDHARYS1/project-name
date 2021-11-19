@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/CHAUDHARYS1/project-name/issues"
   },
-  "homepage": "https://github.com/CHAUDHARYS1/project-name#readme"
+  "homepage": "https://github.com/CHAUDHARYS1/project-name#readme",
+  "dependencies": {
+    "semantic-ui-calendar-react": "^0.15.3"
+  }
 }
