@@ -2,7 +2,7 @@
 import Footer from "./components/footer";
 import Header from "./components/header";
 import LoginForm from "./pages/Login";
-import SignUpForm from "./pages/Signup";
+import SignUpForm from "./pages/signup";
 import MembershipPlans from "./pages/Membership";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
