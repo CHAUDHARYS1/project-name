@@ -4,9 +4,7 @@ import {
   Form,
   Grid,
   Header,
-  Image,
   Container,
-  Menu,
   Icon,
   Divider,
   Checkbox,
@@ -14,22 +12,9 @@ import {
 } from "semantic-ui-react";
 
 const SignUpForm = () => (
-  // https://signup.heroku.com
+  
   <Container className="max-width-800">
-    {/* TODO: Logo on the left top side and 'Already have an account?' 'Log in button on the right side */}
-    <div className="margin-0 margin-top-20">
-      <Menu secondary>
-        <Image src="logo.png" size="small" />
-        <Menu.Menu position="right">
-          <Menu.Item>
-            <p>Already have an account?</p>
-          </Menu.Item>
-          <Menu.Item name="Log in">
-            <Button content="Login" primary />
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-    </div>
+    
     {/* TODO: 'Sign up for free and experience Want a Job? today */}
     <div className="text-center margin-top-50">
       <Header as="h1">

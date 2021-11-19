@@ -11,6 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.popular-plan{
+  border: 2px solid rgb(0, 180, 0)!important;
+  box-shadow: none!important;
+  scale: 1.1;
+}
 .max-width-800{
   max-width: 800px!important;
 }
