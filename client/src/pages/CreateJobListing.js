@@ -1,87 +1,146 @@
-import React from 'react';
-import { Button, Container, Form, Segment, TextArea } from 'semantic-ui-react';
+import React from "react";
+import {
+  Button,
+  Container,
+  Form,
+  Segment,
+  Header,
+  Grid,
+  Divider,
+  List,
+} from "semantic-ui-react";
+
+const typeOfPosition = [
+  { key: "ft", value: "fullTime", text: "Full-Time" },
+  { key: "pt", value: "partTime", text: "Part-Time" },
+  { key: "cw", value: "contractWork", text: "Contract Work" },
+  { key: "ts", value: "temp", text: "Temp/Seasonal" },
+];
+
 const CreateJob = () => {
-    return (
-        <div style={{ padding: "2%" }}>
-            <Container>
-                <Segment raised>
-                    <Form>
-                        <h1>Post a Job</h1>
-                        <div style={{ maxWidth: "28%" }}>
-                            <div style={{ marginLeft: "auto", marginRight: "auto" }}>
-                                <div class="ui grid">
-                                    <div>
-                                        {/* Job Title */}
-                                        <Form.Input icon='user outline' iconPosition='left' label="What is the job title" placeholder='Title' />
-                                        {/* Company Name */}
-                                        <Form.Input icon='building outline' iconPosition='left' label="What is you firm's name" placeholder='Company Name' />
-                                    </div>
-                                    {/* Link */}
-                                    <Form.Input icon='linkify' iconPosition='left' label="Link to the firm's website or job posting" placeholder='Company Link' />
-                                    {/* Start Date */}
-                                    <div style={{ paddingBottom: "10%" }}>
-                                        <h3>Start Date</h3>
-                                        <div class="ui calendar" id="example2">
-                                            <div class="ui input left icon">
-                                                <i class="calendar icon"></i>
-                                                <input type="Date" placeholder="Date" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {/* Type of Postion */}
-                                <div>
-                                    <h3>Type of Postion</h3>
-                                    <div style={{ padding: "2%" }} class="ui toggle checkbox">
-                                        <input type="checkbox" />
-                                        <label>Full-Time</label>
-                                    </div>
-                                    <br />
-                                    <div style={{ padding: 5 }} class="ui toggle checkbox">
-                                        <input type="checkbox" />
-                                        <label>Part-Time</label>
-                                    </div>
-                                    <br />
-                                    <div style={{ padding: 5 }} class="ui toggle checkbox">
-                                        <input type="checkbox" />
-                                        <label>Contract Work</label>
-                                    </div>
-                                    <br />
-                                    <div style={{ padding: 5 }} class="ui toggle checkbox">
-                                        <input type="checkbox" />
-                                        <label>Temp/Seasonal</label>
-                                    </div>
-                                </div>
-                            </div>
-                            {/* Company Descrtion */}
-                            <div class="field" style={{ width: "350%", }}>
-                                <h3>Company Description</h3>
-                                <TextArea placeholder='Tell us more' />
-                            </div>
-                            {/* Job Descrtion */}
-                            <div class="field" style={{ width: "350%", }}>
-                                <h3>Job Description</h3>
-                                <TextArea placeholder='Tell us more' />
-                            </div>
-                            {/* requirements */}
-                            <div class="field" style={{ width: "350%", }}>
-                                <h3>Requirements for Postion</h3>
-                                <TextArea placeholder='Tell us more' />
-                            </div>
-                            {/* Benifits/Salary */}
-                            <div class="field" style={{ width: "350%", }}>
-                                <h3>Additonal Company Benefits:</h3>
-                                <div class="ui input focus" style={{ paddingBottom: "2%" }}>
-                                    <Form.Input icon='dollar sign' iconPosition='left' type='number' placeholder='Salary or Pay' />
-                                </div>
-                                <TextArea placeholder='Additional Benefits' />
-                            </div>
-                            <Button primary content='Post Job' icon='envelope' size='big' />
-                        </div>
-                    </Form>
-                </Segment>
-            </Container >
-        </div>
-    )
-}
+  return (
+    <Container>
+      <div className="margin-top-50"></div>
+
+      <Grid className="margin-top-20">
+        <Grid.Column width={4} className="margin-top-100">
+          <Header as="h3">
+            <Header.Content>
+              Required fields
+              <Header.Subheader>
+              Please make sure to fill out the following parts of the form
+                prior to pressing submit.
+              </Header.Subheader>
+             
+            </Header.Content>
+          </Header>
+
+          <List bulleted>
+            <List.Item>Job Title</List.Item>
+            <List.Item>Type of Position</List.Item>
+            <List.Item>Location</List.Item>
+            <List.Item>Job Description</List.Item>
+            <List.Item>Company Description</List.Item>
+            <List.Item>Requirements</List.Item>
+          </List>
+            <Divider />
+          <Header as="h3">
+            <Header.Content>
+                Optional fields
+                <Header.Subheader>The listed field below are optionals but we encorage every employeer to share this info to attract more candidates.</Header.Subheader>
+            </Header.Content>
+          </Header>
+          <List bulleted>
+            <List.Item>Benefits</List.Item>
+            <List.Item>Salary</List.Item>
+          </List>
+        </Grid.Column>
+        <Grid.Column width={12}>
+        <Header as="h2">
+            <Header.Content>
+              Post a Job
+              <Header.Subheader>
+                Fill out the form to submit a listing.
+              </Header.Subheader>
+              <Divider />
+              <Header.Subheader>
+                Please make sure to fill out the following parts of the form
+                prior to pressing submit.
+              </Header.Subheader>
+            </Header.Content>
+          </Header>
+          <Segment>
+            {/* From goes here */}
+            <Form>
+              <Form.Group widths="equal">
+                {/* Job Title */}
+                <Form.Input label="Job Title" placeholder="Title" />
+                {/* Type of Postion */}
+
+                <Form.Select
+                  placeholder="Type of Position"
+                  options={typeOfPosition}
+                  label="Type of Position"
+                />
+                {/* Location */}
+                <Form.Input
+                  icon="location arrow"
+                  iconPosition="right"
+                  label="Location"
+                  placeholder="Location"
+                />
+              </Form.Group>
+
+              <Form.Group widths="equal">
+                <Form.TextArea
+                  placeholder="Tell us more"
+                  label="Job Description"
+                />
+                <Form.TextArea
+                  placeholder="Tell us more"
+                  label="Company Description"
+                />
+              </Form.Group>
+
+              <Form.Group widths="equal">
+                {/* requirements */}
+
+                <Form.TextArea
+                  placeholder="Tell us about the requiremnts of the position"
+                  label="Requirements"
+                />
+                <Form.TextArea label="Benefits (optional)" />
+              </Form.Group>
+
+              {/* Salary */}
+              <Form.Input
+                icon="dollar sign"
+                iconPosition="left"
+                type="number"
+                label="Salary (optional)"
+                placeholder="Salary or Pay (optional)"
+              />
+
+              <Button primary content="Submit" icon="envelope" />
+            </Form>
+          </Segment>
+        </Grid.Column>
+      </Grid>
+    </Container>
+  );
+};
 export default CreateJob;
+
+//  {/* Company Name */}
+//  <Form.Input
+//  icon="building outline"
+//  iconPosition="left"
+//  label="Firm's Name"
+// />
+// {/* Link */}
+// <Form.Input
+//  icon="linkify"
+//  iconPosition="left"
+//  label="Website"
+//  placeholder=""
+// />
