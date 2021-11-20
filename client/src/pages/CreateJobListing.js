@@ -1,5 +1,5 @@
-
-import { Button, Container, Divider, Form, Grid, Segment, Header, Icon, TextArea } from 'semantic-ui-react'
+import React from 'react';
+import { Button, Container, Form, Segment, TextArea } from 'semantic-ui-react';
 const CreateJob = () => {
     return (
         <div style={{ padding: "2%" }}>
@@ -84,4 +84,4 @@ const CreateJob = () => {
         </div>
     )
 }
-export default CreateJob
+export default CreateJob;

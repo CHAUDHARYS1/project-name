@@ -1,22 +1,28 @@
-import './App.css';
-import LoginForm from './pages/Login';
-import SignUpForm from './pages/signup';
-import Footer from './components/footer';
-import Header from './components/header';
-import CreateJob from './pages/CreatJobListing';
-import SingleJob from './pages/SingleJob.js';
-import HomePage from './pages/HomePage';
+// import './App.css';
+import Footer from "./components/footer";
+import Header from "./components/header";
+import LoginForm from "./pages/Login";
+import SignUpForm from "./pages/Signup";
+import MembershipPlans from "./pages/Membership";
+import CreateJob from "./pages/CreateJobListing";
+import Home from "./pages/Home";
 
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div>
-      <Header></Header>
-      <LoginForm></LoginForm>
-      <SignUpForm></SignUpForm>
-      <HomePage></HomePage>
-      <CreateJob></CreateJob>
-      <SingleJob></SingleJob>
-      <Footer></Footer>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={LoginForm} />
+          <Route exact path="/signup" component={SignUpForm} />
+          <Route exact path="/membership" component={MembershipPlans} />
+          <Route exact path="/createJob" component={CreateJob} />
+        </Switch>
+      </Router>
+
+      <Footer />
     </div>
   );
 }

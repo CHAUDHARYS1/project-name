@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { Button, Container, Divider, Form, Grid, Segment, Header, Icon } from 'semantic-ui-react'
 
 const LoginForm = () => (
@@ -23,7 +24,7 @@ const LoginForm = () => (
           <Grid.Column verticalAlign='middle'>
             <p className="text-center">New to us? </p>
             <p className="text-center text-bold">Register for an account!</p>
-            <Button primary  content='Sign up' icon='signup' size='big' />
+            <Link to="/signup"><Button content='Sign up' icon='signup' size='big' /></Link>
           </Grid.Column>
         </Grid>
 

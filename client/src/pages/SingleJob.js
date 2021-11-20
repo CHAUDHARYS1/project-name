@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Divider, Form, Grid, Segment, Header, Icon, TextArea } from 'semantic-ui-react'
+import { Button, Container, Segment, Header, Icon } from 'semantic-ui-react'
 const SingleJob = () => {
     return (
         <div>
