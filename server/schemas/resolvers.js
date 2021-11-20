@@ -59,14 +59,14 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    /*
-    addThought: async (parent, args, context) => {
+    
+    addJob: async (parent, args, context) => {
       if (context.user) {
         const thought = await Thought.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { thoughts: thought._id } },
+          { $push: { jobs: { jobtitle, username , description, company, salary, benefits, requirements, roletype, linktowebsite} } },
           { new: true }
         );
 
@@ -75,6 +75,7 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+    /*
     addReaction: async (parent, { thoughtId, reactionBody }, context) => {
       if (context.user) {
         const updatedThought = await Thought.findOneAndUpdate(
