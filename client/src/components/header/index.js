@@ -15,7 +15,7 @@ const Header = () => {
           </Menu.Item>
         <Menu.Menu position="right">
           <Menu.Item>
-            <Link to="/login"><Button icon='search'></Button></Link>
+            <Link to="/"><Button icon='search'></Button></Link>
           </Menu.Item>
           <Menu.Item>
             <Link to="/login"><Button>Log In</Button></Link>
