@@ -6,11 +6,17 @@ const Header = () => {
   return (
     <Container fluid>
       <Menu size="large" borderless>
-        <Image src="logo.png" size="small" />
+        <Link to="/"><Image src="logo.png" size="small" /></Link>
         <Menu.Item>
             <Link to="/membership"><Button>Payment Options</Button></Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link to="/createJob"><Button>Create Job</Button></Link>
           </Menu.Item>
         <Menu.Menu position="right">
+          <Menu.Item>
+            <Link to="/"><Button icon='search'></Button></Link>
+          </Menu.Item>
           <Menu.Item>
             <Link to="/login"><Button>Log In</Button></Link>
           </Menu.Item>
