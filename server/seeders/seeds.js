@@ -37,7 +37,8 @@ db.once('open', async () => {
 
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { jobs: createdJob._id } }
+      { $push: { jobs: { jobtitle, username , description, company, salary, benefits, requirements, roletype, linktowebsite} } },
+      // { runValidators: true }
     );
 
     createdJobs.push(createdJob);
