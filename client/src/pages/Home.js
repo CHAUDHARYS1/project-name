@@ -11,6 +11,7 @@ import {
   Grid,
   Divider,
   Sticky,
+  Label
 } from "semantic-ui-react";
 
 const options = [
@@ -59,7 +60,7 @@ const Home = () => {
         <Grid.Column width={4}>
           <Sticky>
             <Segment>
-              <a class="ui teal ribbon label">Filters</a>
+              <Label as='f' color="green" ribbon>Filters</Label>
 
               <Dropdown
                 multiple
@@ -68,6 +69,7 @@ const Home = () => {
                 options={options}
                 placeholder="Active filters"
                 renderLabel={renderLabel}
+                className="margin-top-20"
               />
             </Segment>
           </Sticky>
