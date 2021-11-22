@@ -5,10 +5,9 @@ import Header from "./components/header";
 import LoginForm from "./pages/Login";
 import SignUpForm from "./pages/signup";
 import MembershipPlans from "./pages/Membership";
-import CreateJob from "./pages/CreateJobListing";
+import AddJob from "./pages/AddJob";
 import Home from "./pages/Home";
-import ApolloClient from 'apollo-boost';
-//import { ApolloProvider } from '@apollo/react-hooks';
+import NoMatch from "./pages/NoMatch";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -36,7 +35,8 @@ function App() {
           <Route exact path="/login" component={LoginForm} />
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/membership" component={MembershipPlans} />
-          <Route exact path="/createJob" component={CreateJob} />
+          <Route exact path="/addjob" component={AddJob} />
+          <Route component={NoMatch} />
         </Switch>
       </Router>
       </ApolloProvider>
