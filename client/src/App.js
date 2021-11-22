@@ -1,16 +1,34 @@
 // import './App.css';
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import Footer from "./components/footer";
 import Header from "./components/header";
 import LoginForm from "./pages/Login";
-import SignUpForm from "./pages/Signup";
+import SignUpForm from "./pages/signup";
 import MembershipPlans from "./pages/Membership";
 import CreateJob from "./pages/CreateJobListing";
 import Home from "./pages/Home";
+import ApolloClient from 'apollo-boost';
+//import { ApolloProvider } from '@apollo/react-hooks';
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
+  uri: '/graphql'
+});
+
 function App() {
   return (
     <div>
+       <ApolloProvider client={client}>
       <Router>
         <Header />
         <Switch>
@@ -21,7 +39,7 @@ function App() {
           <Route exact path="/createJob" component={CreateJob} />
         </Switch>
       </Router>
-
+      </ApolloProvider>
       <Footer />
     </div>
   );
