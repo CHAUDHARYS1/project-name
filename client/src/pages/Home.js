@@ -1,18 +1,16 @@
 import React from "react";
 import {
-  Icon,
   Container,
   Input,
-  Button,
   Segment,
   Header,
-  Card,
   Dropdown,
   Grid,
   Divider,
   Sticky,
   Label
 } from "semantic-ui-react";
+import JobList from "../components/JobList"
 
 const options = [
   { key: 1, text: "Filter by date", value: 1 },
@@ -24,16 +22,6 @@ const renderLabel = (label) => ({
   content: `Customized label - ${label.text}`,
   icon: "check",
 });
-
-//  example of how a job list would look like
-const extra = (
-  <Button animated primary>
-    <Button.Content visible>Apply Now</Button.Content>
-    <Button.Content hidden>
-      <Icon name="arrow right" />
-    </Button.Content>
-  </Button>
-);
 
 const Home = () => {
   return (
@@ -78,14 +66,7 @@ const Home = () => {
           <Grid container stackable columns={3} divided="vertically">
             <Grid.Row>
               {/* Repeating card */}
-              <Grid.Column>
-                <Card
-                  header="UX Designer"
-                  description="At Microsoft, we believe that UX design only becomes great when language is straightforward, clear, and designed to flow naturally from one concept to the next. That’s where you come in."
-                  meta="Microsoft"
-                  extra={extra}
-                />
-              </Grid.Column>
+                <JobList />
               {/* End Repeating card */}
             </Grid.Row>
           </Grid>
