@@ -61,9 +61,9 @@ const resolvers = {
     },
     
     addJob: async (parent, args, context) => {
-       if (context.user) {
-               const job = await Job.create({ ...args, username: context.user.username });
-        
+      if (context.user) {
+        const job = await Job.create({ ...args, username: context.user.username });
+
         await User.findByIdAndUpdate(
           { _id: context.user._id },
           { $push: { jobs: { jobtitle, username, description, company, salary,  requirements, roletype, additionalinfo, resume} } },
@@ -71,7 +71,7 @@ const resolvers = {
         );
 
         return job;
-       }
+      }
 
       throw new AuthenticationError('You need to be logged in!');
 
