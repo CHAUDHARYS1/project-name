@@ -17,7 +17,7 @@ const typeOfPosition = [
   { key: "ts", value: "temp", text: "Temp/Seasonal" },
 ];
 
-const CreateJob = () => {
+const JobForm = () => {
   return (
     <Container>
       <div className="margin-top-50"></div>
@@ -28,10 +28,9 @@ const CreateJob = () => {
             <Header.Content>
               Required fields
               <Header.Subheader>
-              Please make sure to fill out the following parts of the form
+                Please make sure to fill out the following parts of the form
                 prior to pressing submit.
               </Header.Subheader>
-             
             </Header.Content>
           </Header>
 
@@ -43,11 +42,14 @@ const CreateJob = () => {
             <List.Item>Company Description</List.Item>
             <List.Item>Requirements</List.Item>
           </List>
-            <Divider />
+          <Divider />
           <Header as="h3">
             <Header.Content>
-                Optional fields
-                <Header.Subheader>The listed field below are optionals but we encorage every employeer to share this info to attract more candidates.</Header.Subheader>
+              Optional fields
+              <Header.Subheader>
+                The listed field below are optionals but we encorage every
+                employeer to share this info to attract more candidates.
+              </Header.Subheader>
             </Header.Content>
           </Header>
           <List bulleted>
@@ -56,7 +58,7 @@ const CreateJob = () => {
           </List>
         </Grid.Column>
         <Grid.Column width={12}>
-        <Header as="h2">
+          <Header as="h2">
             <Header.Content>
               Post a Job
               <Header.Subheader>
@@ -129,18 +131,5 @@ const CreateJob = () => {
     </Container>
   );
 };
-export default CreateJob;
 
-//  {/* Company Name */}
-//  <Form.Input
-//  icon="building outline"
-//  iconPosition="left"
-//  label="Firm's Name"
-// />
-// {/* Link */}
-// <Form.Input
-//  icon="linkify"
-//  iconPosition="left"
-//  label="Website"
-//  placeholder=""
-// />
+export default JobForm;
