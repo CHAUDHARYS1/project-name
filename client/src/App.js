@@ -6,6 +6,7 @@ import SignUpForm from "./pages/Signup";
 import MembershipPlans from "./pages/Membership";
 import AddJob from "./pages/AddJob";
 import Home from "./pages/Home";
+import NoMatch from "./pages/NoMatch";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/membership" component={MembershipPlans} />
           <Route exact path="/addjob" component={AddJob} />
+          <Route component={NoMatch} />
         </Switch>
       </Router>
 
