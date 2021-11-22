@@ -62,7 +62,7 @@ const resolvers = {
     
     addJob: async (parent, args, context) => {
       if (context.user) {
-        const thought = await Thought.create({ ...args, username: context.user.username });
+        const job = await Job.create({ ...args, username: context.user.username });
 
         await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -70,7 +70,7 @@ const resolvers = {
           { new: true }
         );
 
-        return thought;
+        return job;
       }
 
       throw new AuthenticationError('You need to be logged in!');
