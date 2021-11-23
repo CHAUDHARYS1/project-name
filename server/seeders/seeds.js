@@ -23,13 +23,13 @@ db.once('open', async () => {
   // create thoughts
   let createdJobs = [];
   for (let i = 0; i < 100; i += 1) {
-    const jobtitle = faker.lorem.words(Math.round(Math.random() * 20) + 1);
-    const description = faker.lorem.words(Math.round(Math.random() * 30) + 1);
-    const company = `Test` + faker.lorem.words(Math.round(Math.random() * 30) + 1);
-    const requirements = `my requirements` + faker.lorem.words(Math.round(Math.random() * 30) + 1);
-    const roletype = `Full Time`;
+    const jobtitle = faker.name.jobTitle();
+    const description = faker.name.jobDescriptor();
+    const company = faker.company.companyName();
+    const requirements = `my requirements` + faker.random.words();
+    const roletype = faker.randomElements(['Full Time','Part Time','Seasonal/Temp','Contract']);
     const salary =  Math.round(Math.random() * 10) + 1 * 100000 ;
-
+s
     const randomUserIndex = Math.floor(Math.random() * createdUsers.ops.length);
     const { username, _id: userId } = createdUsers.ops[randomUserIndex];
 
@@ -37,7 +37,8 @@ db.once('open', async () => {
 
     const updatedUser = await User.updateOne(
       { _id: userId },
-      { $push: { jobs: createdJob._id } }
+      { $push: { jobs: { jobtitle, username , description, company, salary, requirements, roletype} } },
+      // { runValidators: true }
     );
 
     createdJobs.push(createdJob);

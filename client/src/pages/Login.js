@@ -18,7 +18,7 @@ const LoginForm = () => (
             <Form>
               <Form.Input icon='at' iconPosition='left' label='Email address' placeholder='Email address' />
               <Form.Input icon='lock' iconPosition='left' label='Password' type='password' placeholder='Password' />
-              <Button content='Login' primary />
+              <Button content='Login'/>
             </Form>
           </Grid.Column>
           <Grid.Column verticalAlign='middle'>
