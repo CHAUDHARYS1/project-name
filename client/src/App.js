@@ -3,7 +3,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import Footer from "./components/footer";
 import Header from "./components/header";
 import LoginForm from "./pages/Login";
-import SignUpForm from "./pages/signup";
+import SignUpForm from "./pages/Signup";
 import MembershipPlans from "./pages/Membership";
 import AddJob from "./pages/AddJob";
 import Home from "./pages/Home";
@@ -21,7 +21,8 @@ const client = new ApolloClient({
       }
     });
   },
-  uri: '/graphql'
+  uri: '/graphql',
+  cache: new InMemoryCache(),
 });
 
 function App() {
