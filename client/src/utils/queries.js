@@ -33,7 +33,7 @@ export const QUERY_JOB = gql`
       requirements
       roletype
       linktowebsite
-      additionalinfo    
+      additionalinfo
     }
   }
 `;
@@ -57,7 +57,7 @@ export const QUERY_USER = gql`
         roletype
         linktowebsite
         additionalinfo
-           }
+      }
     }
   }
 `;
@@ -80,10 +80,8 @@ export const QUERY_ME = gql`
         requirments
         roletype
         linktowebsite
-        additionalinfo 
+        additionalinfo
       }
-      }
-
     }
   }
 `;

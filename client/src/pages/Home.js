@@ -1,4 +1,7 @@
 import React from "react";
+import { useQuery } from '@apollo/client';
+import {QUERY_JOBS} from '../utils/queries';
+import {QUERY_ME_BASIC} from '../utils/queries';
 import {
   Container,
   Input,
@@ -12,6 +15,7 @@ import {
 } from "semantic-ui-react";
 import JobList from "../components/JobList"
 
+
 const options = [
   { key: 1, text: "Filter by date", value: 1 },
   { key: 2, text: "Filter by alphabet", value: 2 },
@@ -24,6 +28,11 @@ const renderLabel = (label) => ({
 });
 
 const Home = () => {
+
+  const { loading, data } = useQuery(QUERY_JOBS);
+  const { data: userData } = useQuery(QUERY_ME_BASIC);
+  const jobs = data?.jobs || [];
+  console.log(jobs);
   return (
     <Container>
       <div className="margin-top-50">
