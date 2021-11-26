@@ -1,67 +1,101 @@
-# want-a-job?
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/chaudharys1/want-a-job">
+    <img src="client/public/logo.png" alt="Logo" height="80">
+  </a>
 
-### Requirements:
-Use React for the front end.
+  <h3 align="center">Want a Job?</h3>
 
-Use GraphQL with a Node.js and Express.js server.
+  <p align="center">
+    Want a job? is a powerful application for employers to use to <br /> find new new candidates for different job positions. 
+    <br />
+    <a href="https://github.com/chaudharys1/want-a-job"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/chaudharys1/want-a-job">View Demo</a>
+    ·
+    <a href="https://github.com/chaudharys1/want-a-job/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/chaudharys1/want-a-job/issues">Request Feature</a>
+  </p>
+</p>
 
-Use MongoDB and the Mongoose ODM for the database.
 
-Use queries and mutations for retrieving, adding, updating, and deleting data.
 
-Be deployed using Heroku (with data).
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-Have a polished UI.
 
-Be responsive.
 
-Be interactive (i.e., accept and respond to user input).
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-Include authentication (JWT).
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Protect sensitive API key information on the server.
+Want a job? is a powerful application for employers to use to find new new candidates for different job positions. Candidates go through a simple 3 step process to apply, candidates also do not need to signup for an account but they do have the option to do so if they choose. 
 
-Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, quality comments, etc.).
+1. Search for their desired job
+2. Upload the resume to the job list
+3. and press the Apply button! Simple!
 
-Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+We also created features for our premium members(employers) as well. To post a job listing, they must first signup for an account with the prefered payment plan selected. They will have access to free trial to give the application a chance prior to making the final decision.
 
-### features
-Employers 
-- Create, Read, Update and Delete job listing
-
-Users
-Search for job listing based on position title
-Being able to read job listing 
-Apply to job
-Do not have to login to apply
+Employers are able to do the following but not limited to:
+- Add Job List
+- Update Job List
+- Delete Job List
+- Receive documents like candidates resume
 
 Payment
-Memebership option for employeers
+Memebership options for employeer.
 Tiers of payment
-    Basic Plan $99.00 
-    Unlimited Plan $499.00
-    Executive Plan $999.00
+    - Basic Plan $99.00 
+    - Unlimited Plan $499.00
+    - Executive Plan $999.00
 
-### technology
-- React
-- Semantic UI (front end framework)
-- GraphQl 
-- Apollo
-- MongoDB
-- Mongoose
-- Node
-- Stripe
-- JWT Decode
-- Express
+User Story
+AS a Employer
+I WANT to add my job listing 
+So THAT candidates  can learn more and apply.
 
-### bonus
-Although this is not a requirement for your project, see if you can also implement functionality to meet the minimum requirements of a PWA:
+### Built With
 
-- Uses a web manifest
-- Uses a service worker for offline functionality
-- Is installable
+* Node
+* React
+* GraphQL
+* Express
+* Apollo
+* MongoDB
+* Mongoose
+* Nodemon
+* JavaScript
+* JSX
+* CSS
+* Semantic React UI 
 
-### future enhancement
+
+<!-- USAGE EXAMPLES
+## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_ -->
+
+## Future Enhancements
 - Tracking existing application 
 - Customize their profile 
 - Application history
@@ -69,57 +103,17 @@ Although this is not a requirement for your project, see if you can also impleme
 - Upload profile pic
 - Dashboard for users/employers
 
-### Responsiblities
 
-Connor
-    - Front end (React & Semantic) 
+<!-- LICENSE -->
+## License
 
-Jaya 
-    - Payment (Stripe)
-    - Backend (GraphQL and Apollo Server)
+Distributed under the MIT License. See `LICENSE` for more information.
 
-Shital
-    - To work with Connor on the front end
-    - To work with Jaya on the back end 
-    - To jump in wherever
 
-______________________________________________
-## Front-end
-### Pages needed 
-- Home (list of all the jobs( title, company name, description with character limit, date posted) and search bar on top)
-- Login (email and password && must include JWT) <!-- HTML COMPLETE >
-- Signup (first name, last name, email, password, confirmPassword) <!-- HTML COMPLETE >
-- Add a job list (Title*, Company name*, link to website, Date posted*, Type of role*(fulltime/contract/temp/part-time), Job description*, requirements*, benefits, salary, additional info)
-- Payment Tier (3 columns -  Stripe)
-- Single job listing (w/ apply btn - when user aplies > open modal, > redirect back to homepage)
-- NoMatch 
-### Components needed
-- Footer
-- Header
-- JobList
-- Navigation
 
-### Utils
-- auth.js
-- mutations.js
-- queries.js
+<!-- CONTACT -->
+## Contact
 
-______________________________________________
-## Back-end
-### Config
-- config/connection.js
-### Models 
-- User
-- Employeer
-- Job
+Shital Chaudhary, Jaya Gudipalli, Connor Werth 
 
-### Schemas
-- resolvers
-- typeDefs
-
-### Seeders
-- seeds
-
-### utils
-- auth
-- dateFormat
+Project Link: [https://github.com/chaudharys1/want-a-job](https://github.com/chaudharys1/want-a-job)
