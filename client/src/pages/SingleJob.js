@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import JobList from '../components/JobList';
 
-import Auth from '../utils/auth';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, gql } from '@apollo/client';
 import { QUERY_JOB } from '../utils/queries';
 
 
@@ -20,11 +19,6 @@ const SingleJob = props => {
 
     console.log('data', data)
     console.log('job', job)
-  
-    if (loading) {
-      return <div>Loading...</div>;
-    }
-  
 
     return (
         <div>
@@ -34,7 +28,7 @@ const SingleJob = props => {
                     <Header as='h1'>
                         <Icon name='building' />
                         <Header.Content>
-                            {job.jobtitle}
+                            Job Title: {job.jobtitle}
                             <Header.Subheader>Company Name:</Header.Subheader>
                             <Header.Subheader>Website:</Header.Subheader>
                             <Header.Subheader>Date Posted:</Header.Subheader>

@@ -1,5 +1,5 @@
-// import './App.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import Footer from "./components/footer";
 import Header from "./components/header";
 import LoginForm from "./pages/Login";
@@ -8,6 +8,7 @@ import MembershipPlans from "./pages/Membership";
 import AddJob from "./pages/AddJob";
 import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
+import SingleJob from "./pages/SingleJob";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/signup" component={SignUpForm} />
           <Route exact path="/membership" component={MembershipPlans} />
           <Route exact path="/addjob" component={AddJob} />
+          <Route exact path='/job/:id' component={SingleJob} />
           <Route component={NoMatch} />
         </Switch>
       </Router>
