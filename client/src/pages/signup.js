@@ -1,6 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { ADD_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
+import { useMutation, gql } from "@apollo/client";
 import {
   Button,
   Form,
@@ -12,34 +13,38 @@ import {
   Checkbox,
   Card,
 } from "semantic-ui-react";
-import { useMutation, gql } from "@apollo/client";
-
 
 const SignUpForm = () => {
-  const [formState, setFormState] = useState({ username: '', email: '', password: '' });
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  console.log("use state", useState);
   const [addUser, { error }] = useMutation(ADD_USER);
 
   // update state based on form input changes
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
 
     setFormState({
       ...formState,
-      [name]: value
+      [name]: value,
     });
   };
 
   // submit form
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Im in handle sign up submit")
+    console.log("Im in handle sign up submit");
     try {
       const { data } = await addUser({
-        variables: { ...formState }
+        variables: { ...formState },
       });
 
       Auth.login(data.addUser.token);
-      console.log('User logged In', data.addUser.token);
+      console.log("User logged In", data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -93,67 +98,51 @@ const SignUpForm = () => {
           <Grid.Column>
             <Card fluid>
               <Card.Content>
-                <Form>
+                <Form onSubmit={handleFormSubmit}>
                   <Form.Group fluid columns="equal" widths="equal">
-                    {/* <Form.Input
-                      icon="user"
-                      iconPosition="left"
-                      label="First Name"
-                      placeholder="First Name"
-                      onChange={handleChange}
-                    />
                     <Form.Input
                       icon="user"
                       iconPosition="left"
-                      label="Last Name"
-                      placeholder="Last Name"
-                      onChange={handleChange}
-                    /> */}
-                       <Form.Input
-                      icon="user"
-                      iconPosition="left"
                       name="username"
+                      type="username"
+                      value={formState.username}
                       label="UserName"
                       placeholder="username"
-                      // onChange={handleChange}
+                      onChange={handleChange}
+                    />
+                    <Form.Input
+                      icon="at"
+                      iconPosition="left"
+                      label="Email address"
+                      name="email"
+                      type="email"
+                      value={formState.email}
+                      placeholder="Email address"
+                      onChange={handleChange}
+                    />
+                    <Form.Input
+                      icon="lock"
+                      iconPosition="left"
+                      label="Password"
+                      name="password"
+                      type="password"
+                      value={formState.password}
+                      placeholder="Password"
+                      onChange={handleChange}
                     />
                   </Form.Group>
-                  <Form.Input
-                    icon="at"
-                    iconPosition="left"
-                    label="Email address"
-                    name="email"
-                    placeholder="Email address"
-                    // onChange={handleChange}
-                  />
-                  {/* <Form.Input
-                    icon="building"
-                    iconPosition="left"
-                    label="Company name"
-                    placeholder="Company name"
-                    onChange={handleChange}
-                  /> */}
-                  <Form.Input
-                    icon="lock"
-                    iconPosition="left"
-                    label="Password"
-                    name="password"
-                    type="password"
-                    placeholder="Password"
-                    // onChange={handleChange}
-                  />
                   <Form.Input
                     icon="lock"
                     iconPosition="left"
                     label="Confirm Password"
                     type="password"
                     placeholder="Confirm Password"
-                    // onChange={handleChange}
+                    onChange={handleChange}
                   />
                   <Form.Field>
                     <Checkbox label="Signing up signifies that you have read and agree to the Terms of Service and our Privacy Policy. Cookie Preferences." />
                   </Form.Field>
-                  <Button type="submit" onClick={handleFormSubmit}>Submit</Button>
+                  <Form.Button content="Submit" />
                 </Form>
               </Card.Content>
             </Card>
