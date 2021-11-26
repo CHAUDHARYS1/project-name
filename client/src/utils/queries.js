@@ -5,8 +5,6 @@ export const QUERY_JOBS = gql`
     jobs(username: $username) {
       _id
       jobtitle
-      createdAt
-      username
       company
       description
       benefits
@@ -24,8 +22,6 @@ export const QUERY_JOB = gql`
     job(_id: $id) {
       _id
       jobtitle
-      createdAt
-      username
       company
       description
       benefits

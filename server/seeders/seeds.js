@@ -22,8 +22,8 @@ db.once('open', async () => {
 
   // create thoughts
   let createdJobs = [];
-  for (let i = 0; i < 100; i += 1) {
-    const jobtitle = faker.lorem.words(Math.round(Math.random() * 20) + 1);
+  for (let i = 0; i < 20; i += 1) {
+    const jobtitle = `software Engineer` +`Level` +[i];
     const description = faker.lorem.words(Math.round(Math.random() * 30) + 1);
     const company = `Test` + faker.lorem.words(Math.round(Math.random() * 30) + 1);
     const requirements = `my requirements` + faker.lorem.words(Math.round(Math.random() * 30) + 1);

@@ -11,7 +11,8 @@ import {
   Grid,
   Divider,
   Sticky,
-  Label
+  Label,
+  Form
 } from "semantic-ui-react";
 import JobList from "../components/JobList"
 
@@ -26,13 +27,34 @@ const renderLabel = (label) => ({
   content: `Customized label - ${label.text}`,
   icon: "check",
 });
+ 
 
 const Home = () => {
 
   const { loading, data } = useQuery(QUERY_JOBS);
   const { data: userData } = useQuery(QUERY_ME_BASIC);
   const jobs = data?.jobs || [];
-  console.log(jobs);
+ // submit form
+ const handleFormSubmit = async event => {
+  console.log('jobs', jobs);
+
+  event.preventDefault();
+
+  try {
+    {loading ? (
+      <div>Loading...</div>
+    ) : (
+      <JobList jobs={jobs} title="List of Jobs Searched..." />
+      
+    )}
+    
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+  
+
   return (
     <Container>
       <div className="margin-top-50">
@@ -44,11 +66,15 @@ const Home = () => {
             </Header.Subheader>
           </Header.Content>
         </Header>
+        <Form onSubmit={handleFormSubmit}>
         <Input
           icon={{ name: "search", circular: true, link: true }}
           fluid
-          placeholder="Search..."
+          placeholder="Search..."  
+          onSubmit={handleFormSubmit}
         />
+       </Form>
+      
       </div>
 
       <Divider />
@@ -74,8 +100,8 @@ const Home = () => {
         <Grid.Column width={12}>
           <Grid container stackable columns={3} divided="vertically">
             <Grid.Row>
-              {/* Repeating card */}
-                <JobList />
+                {/* Repeating card */}
+                <JobList jobs={jobs} title="Here is the list of Jobs"/>
               {/* End Repeating card */}
             </Grid.Row>
           </Grid>

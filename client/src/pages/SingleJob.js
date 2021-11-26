@@ -1,6 +1,31 @@
 import React from 'react'
 import { Button, Container, Segment, Header, Icon } from 'semantic-ui-react'
-const SingleJob = () => {
+import { useParams } from 'react-router-dom';
+
+import JobList from '../components/JobList';
+
+import Auth from '../utils/auth';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_JOB } from '../utils/queries';
+
+
+const SingleJob = props => {
+    const { id: jobId } = useParams();
+  
+    const { loading, data } = useQuery(QUERY_JOB, {
+      variables: { id: jobId }
+    });
+  
+    const job = data?.job || {};
+
+    console.log('data', data)
+    console.log('job', job)
+  
+    if (loading) {
+      return <div>Loading...</div>;
+    }
+  
+
     return (
         <div>
             <Container>
@@ -9,7 +34,7 @@ const SingleJob = () => {
                     <Header as='h1'>
                         <Icon name='building' />
                         <Header.Content>
-                            Job Title
+                            {job.jobtitle}
                             <Header.Subheader>Company Name:</Header.Subheader>
                             <Header.Subheader>Website:</Header.Subheader>
                             <Header.Subheader>Date Posted:</Header.Subheader>
@@ -81,4 +106,4 @@ const SingleJob = () => {
         </div>
     )
 }
-export default SingleJob
+export default SingleJob;
