@@ -44,7 +44,7 @@ const SingleJob = props => {
                             Job Description:
                         </h3>
                         <p>
-                        {job.additionalinfo}
+                        {job.description}
                         </p>
                         <h3>
                             Requirements:

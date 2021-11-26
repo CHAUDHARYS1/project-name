@@ -12,7 +12,8 @@ import {
   Checkbox,
   Card,
 } from "semantic-ui-react";
-import { useMutation } from "@apollo/client";
+import { useMutation, gql } from "@apollo/client";
+
 
 const SignUpForm = () => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
@@ -31,7 +32,7 @@ const SignUpForm = () => {
   // submit form
   const handleFormSubmit = async event => {
     event.preventDefault();
-
+    console.log("Im in handle sign up submit")
     try {
       const { data } = await addUser({
         variables: { ...formState }
@@ -92,7 +93,7 @@ const SignUpForm = () => {
           <Grid.Column>
             <Card fluid>
               <Card.Content>
-                <Form onSubmit={handleFormSubmit}>
+                <Form>
                   <Form.Group fluid columns="equal" widths="equal">
                     {/* <Form.Input
                       icon="user"
@@ -114,7 +115,7 @@ const SignUpForm = () => {
                       name="username"
                       label="UserName"
                       placeholder="username"
-                      onChange={handleChange}
+                      // onChange={handleChange}
                     />
                   </Form.Group>
                   <Form.Input
@@ -123,7 +124,7 @@ const SignUpForm = () => {
                     label="Email address"
                     name="email"
                     placeholder="Email address"
-                    onChange={handleChange}
+                    // onChange={handleChange}
                   />
                   {/* <Form.Input
                     icon="building"
@@ -139,7 +140,7 @@ const SignUpForm = () => {
                     name="password"
                     type="password"
                     placeholder="Password"
-                    onChange={handleChange}
+                    // onChange={handleChange}
                   />
                   <Form.Input
                     icon="lock"
@@ -147,12 +148,12 @@ const SignUpForm = () => {
                     label="Confirm Password"
                     type="password"
                     placeholder="Confirm Password"
-                    onChange={handleChange}
+                    // onChange={handleChange}
                   />
                   <Form.Field>
                     <Checkbox label="Signing up signifies that you have read and agree to the Terms of Service and our Privacy Policy. Cookie Preferences." />
                   </Form.Field>
-                  <Button type="submit">Submit</Button>
+                  <Button type="submit" onClick={handleFormSubmit}>Submit</Button>
                 </Form>
               </Card.Content>
             </Card>
