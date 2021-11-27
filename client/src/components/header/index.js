@@ -33,7 +33,9 @@ const Header = () => {
           </Menu.Item>
           {Auth.loggedIn() ? (
             <>
+            {/* chnage this to user icon */}
               <Link to="/profile">Me</Link>
+              {/* change this to a logout button */}
               <a href="/" onClick={logout}>
                 Logout
               </a>
