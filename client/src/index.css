@@ -32,6 +32,15 @@ code {
 .margin-top-100{
   margin-top: 100px!important;
 }
+.margin-bottom-20{
+  margin-bottom: 20px!important;
+}
+.margin-bottom-50{
+  margin-bottom: 50px!important;
+}
+.margin-bottom-100{
+  margin-bottom: 100px!important;
+}
 .text-center{
   text-align: center;
 }
@@ -45,3 +54,11 @@ code {
   width: 100% !important;
   padding: 2%;
 }
+.card{
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px!important; */
+ transform: all 1s ease;
+}
+
+  .card:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px!important;
+  outline: 1px solid black!important;}

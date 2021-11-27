@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Grid, Card, Button, Icon } from "semantic-ui-react";
+import { Grid, Card, Button, Icon, Divider } from "semantic-ui-react";
 
 
 const JobList = ({ jobs, jobtitle }) => {
@@ -20,13 +20,12 @@ const JobList = ({ jobs, jobtitle }) => {
     );
 
   return (
-    <div className="display-jobs">
-      <Grid columns="equal">
+    <>
+      
         {jobs &&
           jobs.map((job) => (
-            <div key={job._id} className="display-jobs">
-              <Grid.Column>
-                <Card
+              <Grid.Column key={job._id} className="margin-bottom-50">
+                <Card className="card"
                   header={job.jobtitle}
                   description={job.description}
                   meta="Microsoft"
@@ -40,10 +39,11 @@ const JobList = ({ jobs, jobtitle }) => {
                 </Link>}
                 />
               </Grid.Column>
-            </div>
+              
+            
           ))}
-      </Grid>
-    </div>
+      
+    </>
   );
 };
 

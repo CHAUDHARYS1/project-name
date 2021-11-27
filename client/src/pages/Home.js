@@ -81,25 +81,25 @@ const Home = () => {
 
       <Grid className="margin-top-20">
         <Grid.Column width={4}>
-          <Sticky>
+          
             <Segment>
               <Label as='f' color="green" ribbon>Filters</Label>
 
               <Dropdown
                 multiple
                 selection
-                fluid
+                
                 options={options}
                 placeholder="Active filters"
                 renderLabel={renderLabel}
                 className="margin-top-20"
               />
             </Segment>
-          </Sticky>
+          
         </Grid.Column>
         <Grid.Column width={12}>
-          <Grid container stackable columns={3} divided="vertically">
-            <Grid.Row>
+          <Grid container stackable columns={3} divided="vertically" >
+            <Grid.Row stretched padded>
                 {/* Repeating card */}
                 <JobList jobs={jobs} title="Here is the list of Jobs"/>
               {/* End Repeating card */}
