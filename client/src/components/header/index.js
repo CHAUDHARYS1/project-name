@@ -1,10 +1,17 @@
 import React from "react";
-import { Container, Menu, Image, Button } from "semantic-ui-react";
+import {
+  Container,
+  Menu,
+  Image,
+  Button,
+  Icon,
+  Dropdown,
+} from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import Auth from '../../utils/auth';
+import Auth from "../../utils/auth";
 
 const Header = () => {
-  const logout = event => {
+  const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
@@ -15,37 +22,71 @@ const Header = () => {
         <Link to="/">
           <Image src="logo.png" size="small" />
         </Link>
-        <Menu.Item>
-          <Link to="/membership">
-            <Button>Payment Options</Button>
-          </Link>
-        </Menu.Item>
+        {Auth.loggedIn() ? (
+          <></>
+        ) : (
+          <>
+            <Menu.Item>
+              <Link to="/membership">
+                <Button>Payment Options</Button>
+              </Link>
+            </Menu.Item>
+          </>
+        )}
+
         <Menu.Menu position="right">
-          <Menu.Item>
-            <Link to="/">
-              <Button icon="search"></Button>
-            </Link>
-          </Menu.Item>
-          <Menu.Item>
-            <Link to="/addJob">
-              <Button>Create Job</Button>
-            </Link>
-          </Menu.Item>
           {Auth.loggedIn() ? (
             <>
-            {/* chnage this to user icon */}
-              <Link to="/profile">Me</Link>
-              {/* change this to a logout button */}
-              <a href="/" onClick={logout}>
-                Logout
-              </a>
+              <Menu.Item>
+                <Dropdown text="Me" pointing>
+                  <Dropdown.Menu>
+                    <Dropdown.Header>Choose:</Dropdown.Header>
+                    <Dropdown.Item>
+                      <a href="/" onClick={logout}>
+                        Logout
+                      </a>
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to="/">
+                  <Button icon labelPosition="right">
+                    Search
+                    <Icon name="search" />
+                  </Button>
+                </Link>
+
+                <Link to="/addJob">
+                  <Button icon labelPosition="right" primary>
+                    Create Job
+                    <Icon name="add" />
+                  </Button>
+                </Link>
+              </Menu.Item>
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Menu.Item>
+                <Link to="/login">
+                  <Button animated="vertical">
+                    <Button.Content hidden>Login</Button.Content>
+                    <Button.Content visible>
+                      <Icon name="user" />
+                    </Button.Content>
+                  </Button>
+                </Link>
+                <Link to="/signup">
+                  <Button animated="vertical" primary>
+                    <Button.Content hidden>Signup</Button.Content>
+                    <Button.Content visible>
+                      <Icon name="user plus" />
+                    </Button.Content>
+                  </Button>
+                </Link>
+              </Menu.Item>
             </>
-          )}  
+          )}
         </Menu.Menu>
       </Menu>
     </Container>
