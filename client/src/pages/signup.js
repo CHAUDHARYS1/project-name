@@ -74,24 +74,24 @@ const SignUpForm = () => {
                 Begin using our application with a free 30 day trial.
               </Header.Subheader>
             </Header>
-            <Divider hidden /> <Divider hidden />
+            <Divider hidden /> 
+            <Divider hidden />
             <Divider hidden />
             <Header as="h3">
-              <Icon name="plug" />
-              <Header.Content>Uptime Guarantee</Header.Content>
+              <Icon name="lightning" />
+              <Header.Content>Instant Listing</Header.Content>
               <Header.Subheader className="margin-top-20">
-                Create apps, connect databases and add-on services, and
-                collaborate on your apps, for free.
+                Your data is only your data. As soon as you are ready, your job will be listed instantly.
               </Header.Subheader>
             </Header>
-            <Divider hidden /> <Divider hidden />
+            <Divider hidden /> 
+            <Divider hidden />
             <Divider hidden />
             <Header as="h3">
-              <Icon name="plug" />
-              <Header.Content>Uptime Guarantee</Header.Content>
+              <Icon name="star" />
+              <Header.Content>Easy to use</Header.Content>
               <Header.Subheader className="margin-top-20">
-                Create apps, connect databases and add-on services, and
-                collaborate on your apps, for free.
+                Unlike other applications. Our app is easy to use. Its simple and gets the job done.
               </Header.Subheader>
             </Header>
           </Grid.Column>
@@ -99,38 +99,37 @@ const SignUpForm = () => {
             <Card fluid>
               <Card.Content>
                 <Form onSubmit={handleFormSubmit}>
-                  <Form.Group fluid columns="equal" widths="equal">
-                    <Form.Input
-                      icon="user"
-                      iconPosition="left"
-                      name="username"
-                      type="username"
-                      value={formState.username}
-                      label="UserName"
-                      placeholder="username"
-                      onChange={handleChange}
-                    />
-                    <Form.Input
-                      icon="at"
-                      iconPosition="left"
-                      label="Email address"
-                      name="email"
-                      type="email"
-                      value={formState.email}
-                      placeholder="Email address"
-                      onChange={handleChange}
-                    />
-                    <Form.Input
-                      icon="lock"
-                      iconPosition="left"
-                      label="Password"
-                      name="password"
-                      type="password"
-                      value={formState.password}
-                      placeholder="Password"
-                      onChange={handleChange}
-                    />
-                  </Form.Group>
+                  <Form.Input
+                    icon="user"
+                    iconPosition="left"
+                    name="username"
+                    type="username"
+                    value={formState.username}
+                    label="Username"
+                    placeholder="username"
+                    onChange={handleChange}
+                  />
+                  <Form.Input
+                    icon="at"
+                    iconPosition="left"
+                    label="Email address"
+                    name="email"
+                    type="email"
+                    value={formState.email}
+                    placeholder="Email address"
+                    onChange={handleChange}
+                  />
+
+                  <Form.Input
+                    icon="lock"
+                    iconPosition="left"
+                    label="Password"
+                    name="password"
+                    type="password"
+                    value={formState.password}
+                    placeholder="Password"
+                    onChange={handleChange}
+                  />
                   <Form.Input
                     icon="lock"
                     iconPosition="left"
@@ -142,7 +141,7 @@ const SignUpForm = () => {
                   <Form.Field>
                     <Checkbox label="Signing up signifies that you have read and agree to the Terms of Service and our Privacy Policy. Cookie Preferences." />
                   </Form.Field>
-                  <Form.Button content="Submit" />
+                  <Form.Button content="Submit" primary />
                 </Form>
               </Card.Content>
             </Card>
